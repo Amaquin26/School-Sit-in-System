@@ -46,7 +46,7 @@ session_start();
                 </div>
             </div>
             <div class="flex flex-col items-center pb-5">
-                <img class="w-24 h-24 mb-3 rounded-full shadow-lg object-contain object-center" src="/sitin//assets//images//mikha.png"/>
+                <img class="w-24 h-24 mb-3 rounded-full shadow-lg object-contain object-center" src="<?= $_SESSION['profile']?>"/>
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname']?></h5>
                 <span class="text-sm text-gray-500 dark:text-gray-400"><?= $_SESSION['role'] ?></span>
             </div>
@@ -57,6 +57,10 @@ session_start();
                 <p class="my-1">Gender: <?= $_SESSION['gender']?></p>
             </div>
         </div>
+    </div>
+
+    <div class="fixed bottom-2 right-5">
+        <?php include('../includes/generalmessage.php') ?>
     </div>
 
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2024 at 04:08 AM
+-- Generation Time: May 27, 2024 at 06:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -82,6 +82,14 @@ CREATE TABLE `reservation` (
   `message` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `user_id`, `purpose`, `lab`, `date_requested`, `status`, `message`) VALUES
+(4, 1, 'Python', '526', '2024-05-27 10:58:58', 1, 'Approve. 5 mins allowance'),
+(5, 17, 'Python', '526', '2024-05-27 10:59:25', 3, 'No more available PC');
+
 -- --------------------------------------------------------
 
 --
@@ -143,7 +151,7 @@ CREATE TABLE `users` (
   `gender` varchar(50) NOT NULL,
   `contact` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `profilePath` varchar(255) DEFAULT NULL,
+  `profilePath` varchar(255) DEFAULT '"/sitin/assets/images/profiles/nopfp.png"',
   `address` varchar(50) NOT NULL,
   `sessions` int(11) DEFAULT 30,
   `role` varchar(30) NOT NULL DEFAULT 'student',
@@ -155,23 +163,23 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_ID`, `idno`, `firstname`, `middlename`, `lastname`, `age`, `yearlevel`, `gender`, `contact`, `email`, `profilePath`, `address`, `sessions`, `role`, `password`) VALUES
-(1, 21420351, 'Brayl James', 'Cortez', 'Amaquin', 21, 3, 'Male', '09562241845', 'brayljamesamaquin@gmail.com', NULL, '12-8H BAGANO COMPOUND, DOÑA MA', 24, 'student', '$2y$10$dJSykk4H7T8zcsXmOnrxr.ldJyRd.wnT7QlLVVDCvYgMQ3TNHLvu2'),
-(2, -1, 'Jeff', '', 'Salimbangon', 30, NULL, 'Male', '0000', 'jeff@admin.com', NULL, 'Cebu City', NULL, 'admin', '$2y$10$dJSykk4H7T8zcsXmOnrxr.ldJyRd.wnT7QlLVVDCvYgMQ3TNHLvu2'),
-(3, 21420352, 'Nedrey Jon', '', 'Golosino', 21, 3, 'Male', '0000', 'golosino@gmail.com', NULL, 'Ce', 29, 'student', '$2y$10$wSe50p9pc2onaT.boPIncOYw.H0.V3KxKEbcPYZ5Vxe2T9WiAEStW'),
-(4, 21420353, 'Brandon', '', 'Alcarmen', 21, 3, 'Male', '0000', 'alcarmen@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(5, 21420354, 'Jeremiah Rae', '', 'Tabacon', 23, 3, 'Male', '0000', 'tabacon@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(6, 21420355, 'Kyle', '', 'Lim', 23, 3, 'Male', '0000', 'lim@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(7, 21420356, 'Roy', '', 'Dumasig', 69, 3, 'Male', '0000', 'dumasig@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(8, 21420357, 'Melvin', '', 'Sagnoy', 69, 3, 'Male', '0000', 'sagnoy@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(9, 21420358, 'Allan', '', 'Villegas', 23, 3, 'Male', '0000', 'villegas@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(10, 21420359, 'Joshua', '', 'Caranzo', 69, 3, 'Male', '0000', 'caranzo@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(11, 21420360, 'Joshua', '', 'Geram', 69, 3, 'Male', '0000', 'geram@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(12, 21420361, 'John', '', 'Soco', 23, 3, 'Male', '0000', 'soco@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(13, 21420362, 'John Denver', '', 'Vargas', 69, 3, 'Male', '0000', 'vargas@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(14, 21420363, 'Shyrelle Shine', '', 'Managaytay', 69, 3, 'Female', '0000', 'managaytay@gmail.com', NULL, 'Cebu City', 28, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(15, 21420364, 'Shyra', '', 'Galon', 23, 3, 'Female', '0000', 'galon@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(16, 21420365, 'Irene', '', 'Luga', 69, 3, 'Male', '0000', 'luga@gmail.com', NULL, 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
-(17, 21420366, 'Kate', '', 'Clemente', 20, 3, 'Female', '0000', 'clemente@gmail.com', NULL, 'Cebu City', 28, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa');
+(1, 21420351, 'Brayl James', 'Cortez', 'Amaquin', 21, 3, 'Male', '1111', 'brayljamesamaquin@gmail.com', '../assets/images/profiles/1/aa8d501ffb1c053b465c2cccc8368401.jpg', 'Punta ', 24, 'student', '$2y$10$dJSykk4H7T8zcsXmOnrxr.ldJyRd.wnT7QlLVVDCvYgMQ3TNHLvu2'),
+(2, -1, 'Jeff', '', 'Salimbangon', 30, NULL, 'Male', '0000', 'jeff@admin.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', NULL, 'admin', '$2y$10$dJSykk4H7T8zcsXmOnrxr.ldJyRd.wnT7QlLVVDCvYgMQ3TNHLvu2'),
+(3, 21420352, 'Nedrey Jon', '', 'Golosino', 21, 3, 'Male', '0000', 'golosino@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Ce', 29, 'student', '$2y$10$wSe50p9pc2onaT.boPIncOYw.H0.V3KxKEbcPYZ5Vxe2T9WiAEStW'),
+(4, 21420353, 'Brandon', '', 'Alcarmen', 21, 3, 'Male', '0000', 'alcarmen@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(5, 21420354, 'Jeremiah Rae', '', 'Tabacon', 23, 3, 'Male', '0000', 'tabacon@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(6, 21420355, 'Kyle', '', 'Lim', 23, 3, 'Male', '0000', 'lim@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(7, 21420356, 'Roy', '', 'Dumasig', 69, 3, 'Male', '0000', 'dumasig@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(8, 21420357, 'Melvin', '', 'Sagnoy', 69, 3, 'Male', '0000', 'sagnoy@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(9, 21420358, 'Allan', '', 'Villegas', 23, 3, 'Male', '0000', 'villegas@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(10, 21420359, 'Joshua', '', 'Caranzo', 69, 3, 'Male', '0000', 'caranzo@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(11, 21420360, 'Joshua', '', 'Geram', 69, 3, 'Male', '0000', 'geram@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(12, 21420361, 'John', '', 'Soco', 23, 3, 'Male', '0000', 'soco@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(13, 21420362, 'John Denver', '', 'Vargas', 69, 3, 'Male', '0000', 'vargas@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(14, 21420363, 'Shyrelle Shine', '', 'Managaytay', 69, 3, 'Female', '0000', 'managaytay@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 28, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(15, 21420364, 'Shyra', '', 'Galon', 23, 3, 'Female', '0000', 'galon@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(16, 21420365, 'Irene', '', 'Luga', 69, 3, 'Male', '0000', 'luga@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 29, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa'),
+(17, 21420366, 'Kate', '', 'Clemente', 20, 3, 'Female', '0000', 'clemente@gmail.com', '/sitin/assets/images/profiles/nopfp.png', 'Cebu City', 28, 'student', '$2y$10$b7jQSCZ1lzTk.5iawhB7U.sulYoblbhZGCDhB7wb6MO04KLftyTfa');
 
 --
 -- Indexes for dumped tables
@@ -235,7 +243,7 @@ ALTER TABLE `feedbacks`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sitinrecord`

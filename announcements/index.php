@@ -9,7 +9,7 @@ session_start();
 
     $announcements = array();
 
-    $query = "SELECT a.id,a.datecreated,a.title,a.message,u.firstname,u.lastname FROM announcements a JOIN users u ON a.userId = u.user_ID ORDER BY a.datecreated DESC"; 
+    $query = "SELECT a.id,a.datecreated,a.title,a.message,u.firstname,u.lastname,u.profilePath FROM announcements a JOIN users u ON a.userId = u.user_ID ORDER BY a.datecreated DESC"; 
 
     $query_run = mysqli_query($conn,$query);
 
@@ -46,7 +46,7 @@ session_start();
                 <?php foreach($announcements as $announcement): ?>              
                     <li class="mb-10 ms-6">
                             <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                                <img class="rounded-full shadow-lg" src="/sitin//assets//images//mikha.png" />
+                                <img class="rounded-full shadow-lg" src="<?= $announcement['profilePath'] ?>" />
                             </span>
                             <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
                                 <div class="items-center justify-between mb-3 sm:flex">

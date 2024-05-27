@@ -29,6 +29,7 @@
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['address'] = $user['address'];
                     $_SESSION['role'] = $user['role'];
+                     $_SESSION['profile'] = $user['profilePath'];
 
                     if($_SESSION["role"] === "student")
                         $_SESSION['sessions'] = $user['sessions'];

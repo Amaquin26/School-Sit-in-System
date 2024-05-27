@@ -17,7 +17,7 @@
         $idno = $_GET['search-input'] ?? "";
 
         if($idno != null || $idno != ""){
-            $query = "SELECT idno,firstname,lastname,role,sessions FROM users WHERE idno = '$idno' AND role = 'student' LIMIT 1";
+            $query = "SELECT idno,firstname,lastname,role,sessions,profilePath FROM users WHERE idno = '$idno' AND role = 'student' LIMIT 1";
             $query_run = mysqli_query($conn,$query);
 
             if(mysqli_num_rows($query_run) > 0){
@@ -27,7 +27,8 @@
                     $student_detail['firstname'] = $user['firstname'];
                     $student_detail['lastname'] = $user['lastname'];
                     $student_detail['role'] = $user['role'];             
-                    $student_detail['sessions'] = $user['sessions'];             
+                    $student_detail['sessions'] = $user['sessions'];   
+                    $student_detail['profilePath'] = $user['profilePath'];            
                 }
             }
         }
@@ -90,7 +91,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-center pb-5">
-                    <img class="w-24 h-24 mb-3 rounded-full shadow-lg object-contain object-center" src="/sitin//assets//images//mikha.png"/>
+                    <img class="w-24 h-24 mb-3 rounded-full shadow-lg object-contain object-center" src="<?= $student_detail['profilePath'] ?>" />
                     <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><?= $student_detail['firstname'] . ' ' . $student_detail['lastname']?></h5>
                     <span class="text-sm text-gray-500 dark:text-gray-400"><?= $student_detail['role'] ?></span>
                     <form class="flex justify-between items-center gap-3 mt-4 md:mt-6" action="resetsession.php" method="post">

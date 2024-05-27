@@ -1,0 +1,8 @@
+Admin Account:
+
+Email: jeff@admin.com
+Password: 123
+
+Student Account:
+Email: brayljamesamaquin@gmail.com
+Password: 123
