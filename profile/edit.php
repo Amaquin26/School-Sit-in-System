@@ -32,12 +32,12 @@
             if (move_uploaded_file($fileTmpPath, $dest_path)) {
                 $profilePath = $dest_path;
             } else {
-                $profilePath = null;;
+                $profilePath = $_SESSION['profile'];
                 $_SESSION['message'] = "There was an error moving the file to the upload directory.";
                 $_SESSION['messagestatus'] = "danger";
             }
         } else {
-            $profilePath = null;
+            $profilePath = $_SESSION['profile'];
             $_SESSION['message'] = "No file was uploaded or there was an upload error.";
             $_SESSION['messagestatus'] = "danger";
         }
