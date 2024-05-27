@@ -11,8 +11,13 @@ session_start();
     require_once '../config/dbconn.php';
 
     $reportings = array();
+    $laboratory = isset($_GET["laboratory"])? $_GET["laboratory"] : "";
 
-    $query = "SELECT a.id,a.datecreated,a.title,a.message,u.firstname,u.lastname FROM feedbacks a JOIN users u ON a.user_ID = u.user_ID ORDER BY a.datecreated DESC"; 
+    $query = "SELECT a.id, a.datecreated, a.title, a.message, u.firstname, u.lastname 
+          FROM feedbacks a 
+          JOIN users u ON a.user_ID = u.user_ID 
+          WHERE a.title LIKE '%$laboratory%' 
+          ORDER BY a.datecreated DESC";
 
     $query_run = mysqli_query($conn,$query);
 
@@ -45,6 +50,19 @@ session_start();
         <h2 class="mb-4 text-center text-2xl m-auto font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">Feedback and Reportings</h2>
 
         <div class="max-w-full m-auto p-6" style="max-width:70rem;margin: auto;">
+            <div class="mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-5">
+                <form class="flex items-center justify-center">
+                    <label for="laboratory" class="block w-full text-sm font-medium text-gray-900 dark:text-white">Filter By Laboratory</label>
+                    <select id="laboratory" name="laboratory" class="mr-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="" <?php if ($laboratory == '') echo 'selected'; ?>>All</option> 
+                        <option value="526" <?php if ($laboratory == '526') echo 'selected'; ?>>526</option>
+                        <option value="524" <?php if ($laboratory == '524') echo 'selected'; ?>>524</option>
+                        <option value="542" <?php if ($laboratory == '542') echo 'selected'; ?>>542</option>
+                        <option value="535" <?php if ($laboratory == '535') echo 'selected'; ?>>535</option>
+                    </select>
+                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Filter</button>
+                </form>
+            </div>
             <ol class="relative border-gray-200 dark:border-gray-700">
                 <?php foreach($reportings as $reporting): ?>              
                     <li class="mb-10 ms-6">

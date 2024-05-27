@@ -27,43 +27,71 @@ $labs = ["526", "524", "542", "535"];
     <?php include '../includes/header.php' ?>
 
 
-    <div class="px-4 mt-5 mb-5">
-        <h2 class="mb-4 text-center text-2xl m-auto font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">Lab Rules</h2>
-
-
+    <div class="px-4  mb-5" style="margin-top: 4rem;">
         <div class="block mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style="max-width: 80rem;">
-            <h5 class=" text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">General Lab Rule</h5>
-            <p class="font-normal text-gray-700 dark:text-gray-400">
-                "Respectful and responsible computer use is expected at all times. This includes refraining from 
-                accessing inappropriate content, adhering to software licensing agreements, and treating equipment 
-                with care. Noise levels should be kept to a minimum to maintain a conducive working environment for all users."
+            <h5 class=" text-start mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab Rules and Regulations</h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400 mb-4">
+                To avoid embarrassment and maintain camaraderie with your friends and superior at our laboratories, please observe the following:
             </p>
+            <ol class="w-full space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                <li>
+                    Maintain silence, proper decorum, and discipline inside the laboratory. Mobile phones, walkmans and other personal pieces of equipment must be switched off.
+                </li>
+                <li>
+                    Games are not allowed inside the lab. This includes computer-related games, card games and other games that may disturb the operation of the lab.
+                </li>
+                <li>
+                    Surfing the internet is allowed only with the permission of the instructor. Downloading and installing of software are strictly prohibited.
+                </li>
+                <li>
+                    Getting access to other websites not related to the course (especially pornographic and illicit sites) is strictly prohibited.
+                </li>
+                <li>
+                    Deleting computer files and changing the set-up of the computer is a major offense.
+                </li>
+                <li>
+                    Observe computer time usage carefully. A fifteen-minute allowance is given for each use. Otherwise, the unit will be given to those who wish to sit-in.
+                </li>
+                <li>
+                    Observe proper decorum while inside the laboratory.
+                    <ul style="margin-left: 1.5rem;">
+                        <li> a. Do not get inside the lab unless the instructor is present.</li>
+                        <li> b. All bags, knapsacks, and the likes must be deposited at the counter.</li>
+                        <li> c. Follow the seating arrangement of your instructor..</li>
+                        <li> d. At the end of class, all software programs must be closed.</li>
+                        <li> e. Return all chairs to their proper places after using.</li>                 
+                    </ul>
+                </li>
+                <li>
+                    Chewing gum, eating, drinking, smoking, and other forms of vandalism are prohibited inside the lab.
+                </li>
+                <li>
+                    Anyone causing a continual disturbance will be asked to leave the lab. Acts or gestures offensive to the members of the community, including public display of physical intimacy, are not tolerated.
+                </li>
+                <li>
+                    Persons exhibiting hostile or threatening behavior such as yelling, swearing, or disregarding requests made by lab personnel will be asked to leave the lab.
+                </li>
+                <li>
+                    For serious offense, the lab personnel may call the Civil Security Office (CSU) for assistance.
+                </li>
+                <li>
+                    Any technical problem or difficulty must be addressed to the laboratory supervisor, student assistant or instructor immediately.
+                </li>
+            </ol>
         </div>
 
-
-        <div class="mt-5 w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" style="max-width: 80rem;">
-
-            <?php foreach ($labs as $lab) : ?>
-                <div class="max-w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div>
-                        <img class="rounded-t-lg" src="/sitin//assets//images//computer-lab.jpeg" alt="" />
-                    </div>
-                    <div class="p-5">
-                        <div>
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab <?= $lab ?></h5>
-                        </div>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">See Lab Rules.</p>
-                        <a href="./lab.php?lab=<?= $lab?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            View Rules
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            <?php endforeach ?>
-
+        <div class="mt-5 block mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style="max-width: 80rem;">
+            <h5 class=" text-start mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Disciplinary Action</h5>
+            <ul class="w-full space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                <li>
+                    <span class="font-semibold text-gray-900 dark:text-white">First Offense</span> - The Head or the Dean or OIC recommends to the Guidance Center for a suspension from classes for each offender.
+                </li>
+                <li>
+                    <span class="font-semibold text-gray-900 dark:text-white">Second and Subsequent Offenses</span> - A recommendation for a heavier sanction will be endorsed to the Guidance Center.
+                </li>
+            </ul>
         </div>
+
     </div>
 
 </body>
